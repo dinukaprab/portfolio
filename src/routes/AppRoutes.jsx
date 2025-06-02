@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "/src/pages/Home/Home";
+import BaseLayout from "../components/BaseLayout/Layout";
+import Home from "../pages/Home/Home";
+import NotFound from "../pages/ErrorPages/NotFound/NotFound";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<BaseLayout content={<Home />} />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

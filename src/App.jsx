@@ -1,17 +1,22 @@
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-import AppRoutes from "/src/routes/AppRoutes";
+import AppRoutes from "./routes/AppRoutes";
+import darkTheme from "./theme/darkTheme";
 import "./index.css";
 
 function App() {
   return (
-    <BrowserRouter
-      future={{
-        v7_relativeSplatPath: true,
-        v7_startTransition: true,
-      }}
-    >
-      <AppRoutes />
-    </BrowserRouter>
+    <ThemeProvider theme={darkTheme}>
+      <BrowserRouter
+        future={{
+          v7_relativeSplatPath: true,
+          v7_startTransition: true,
+        }}
+      >
+        <CssBaseline />
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
