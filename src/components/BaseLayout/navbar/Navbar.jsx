@@ -2,19 +2,67 @@ import { Box, Button } from "@mui/material";
 
 export default function Navbar() {
   return (
-    <>
+    <Box
+      sx={{
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        backdropFilter: "blur(5px)",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          display: { xs: "none", md: "block" },
+          bottom: 0,
+          left: 0,
+          width: "37.5%",
+          height: "40px",
+          background: "rgb(2, 6, 14)",
+        },
+        "&::after": {
+          content: '""',
+          position: "absolute",
+          display: { xs: "none", md: "block" },
+          bottom: 0,
+          right: 0,
+          width: "37.5%",
+          height: "40px",
+          background: "rgb(2, 6, 14)",
+        },
+      }}
+    >
       <Box
         sx={{
-          position: "fixed",
           display: "flex",
-          justifyContent: { xs: "center", sm: "flex-end" },
+          justifyContent: "center",
           alignItems: "center",
-          width: "100%",
-          background: "rgba(16, 16, 16, 0.95)",
+          width: { xs: "100%", md: "25%" },
+          background: "#101010",
           backdropFilter: "blur(5px)",
-          borderBottom: "1px solid rgba(64, 66, 78, 0.62)",
-          borderBottomLeftRadius: 8,
-          borderBottomRightRadius: 8,
+          zIndex: 100,
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            display: { xs: "none", md: "block" },
+            bottom: 0,
+            left: -1,
+            width: "40px",
+            height: "40px",
+            background: "rgb(2, 6, 14)",
+            clipPath: "polygon(0 0, 100% 100%, 0 100%)",
+          },
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            display: { xs: "none", md: "block" },
+            bottom: 0,
+            right: -1,
+            width: "40px",
+            height: "40px",
+            background: "rgb(2, 6, 14)",
+            clipPath: "polygon(100% 0,100% 100%, 0 100%)",
+          },
         }}
       >
         <Box>
@@ -65,6 +113,6 @@ export default function Navbar() {
           </Button>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }
