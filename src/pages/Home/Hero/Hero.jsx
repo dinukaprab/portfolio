@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <Box
       sx={{
-        height: "190vh",
+        height: "90vh",
         background: `linear-gradient(to bottom,rgb(2, 6, 14) 0%, #101010 100%)`,
       }}
     >

@@ -10,6 +10,10 @@ export default function Navbar() {
         alignItems: "center",
         width: "100%",
         backdropFilter: "blur(5px)",
+        opacity: 0,
+        transform: "translateY(20px)",
+        animation: "fadeUp-navbar 0.8s ease-out forwards",
+        animationDelay: "0.2s",
         "&::before": {
           content: '""',
           position: "absolute",
@@ -40,6 +44,10 @@ export default function Navbar() {
           width: { xs: "100%", md: "25%" },
           background: "#101010",
           backdropFilter: "blur(5px)",
+          opacity: 0,
+          transform: "translateY(20px)",
+          animation: "fadeUp-navbar 0.8s ease-out forwards",
+          animationDelay: "0.2s",
           zIndex: 100,
           "&::before": {
             content: '""',
@@ -63,9 +71,38 @@ export default function Navbar() {
             background: "rgb(2, 6, 14)",
             clipPath: "polygon(100% 0,100% 100%, 0 100%)",
           },
+          "@keyframes fadeUp-navbar": {
+            "0%": {
+              opacity: 0,
+              display: "none",
+              transform: "translateY(20px)",
+            },
+            "100%": {
+              opacity: 1,
+              display: "flex",
+              transform: "translateY(0)",
+            },
+          },
         }}
       >
-        <Box>
+        <Box
+          sx={{
+            opacity: 0,
+            transform: "translateY(-20px)",
+            animation: "fadeUp-hire-button 1.5s ease-out forwards",
+            animationDelay: "0.5s",
+            "@keyframes fadeUp-hire-button": {
+              "0%": {
+                opacity: 0,
+                transform: "translateY(-20px)",
+              },
+              "100%": {
+                opacity: 1,
+                transform: "translateY(0)",
+              },
+            },
+          }}
+        >
           <Button
             sx={{
               margin: 2,
