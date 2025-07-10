@@ -41,7 +41,7 @@ export default function Home() {
   };
   return (
     <>
-      <Hero />
+      <Hero componentId="hero" />
 
       {showScrollTop && (
         <Box
