@@ -12,8 +12,6 @@ import {
     List,
     ListItem,
     ListItemButton,
-    ListItemText,
-    Divider
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 

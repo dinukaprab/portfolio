@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Hero from "./Hero/Hero";
+// import AboutMe from "./AboutMe/AboutMe";
+// import Skills from "./Skills/Skills";
+// import Resume from "./Resume/Resume";
+// import Projects from "./Projects/Projects";
+// import Contact from "./Contact/Contact";
+// import Footer from "./Footer/Footer";
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
