@@ -38,6 +38,16 @@ export default function Navbar() {
     >
       <Box
         sx={{
+          position: "absolute",
+          top: 0,
+          width: "100%",
+          height: "40px",
+          background: "#101010",
+          zIndex: -100
+        }}
+      />
+      <Box
+        sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
