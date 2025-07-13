@@ -5,7 +5,6 @@ import {
     Fade,
     Box,
     CardMedia,
-    useScrollTrigger,
     Button,
     IconButton,
     SwipeableDrawer,
@@ -16,7 +15,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ScrolledNavbar() {
-    const trigger = useScrollTrigger({ threshold: 100 });
     const [activeTab, setActiveTab] = useState("hero");
     const [state, setState] = useState({ right: false });
 
@@ -30,6 +28,7 @@ export default function ScrolledNavbar() {
                 "resume",
                 "testimonials",
                 "contact",
+                "footer",
             ];
 
             const scrollPos = window.scrollY + window.innerHeight / 3;
@@ -118,8 +117,8 @@ export default function ScrolledNavbar() {
 
     return (
         <>
-            <Slide in={trigger} direction="down">
-                <Fade in={trigger}>
+            <Slide in={true} direction="down">
+                <Fade in={true}>
                     <AppBar position="fixed" sx={{ boxShadow: 2, backdropFilter: "blur(5px)" }}>
                         <Box
                             sx={{
