@@ -46,6 +46,7 @@ export default function ScrolledNavbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+
     const toggleDrawer = (anchor, open) => (event) => {
         if (
             event &&
@@ -106,7 +107,16 @@ export default function ScrolledNavbar() {
                                     textTransform: "capitalize",
                                 }}
                             >
-                                {label}
+                                <span
+                                    style={{
+                                        background: "white",
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        display: "inline-block",
+                                    }}
+                                >
+                                    {label}
+                                </span>
                             </Box>
                         </ListItemButton>
                     </ListItem>
@@ -172,7 +182,17 @@ export default function ScrolledNavbar() {
                                         }}
 
                                     >
-                                        {label}
+                                        <span
+                                            style={{
+                                                background: "white",
+                                                WebkitBackgroundClip: "text",
+                                                WebkitTextFillColor: "transparent",
+                                                display: "inline-block",
+                                            }}
+                                        >
+                                            {label}
+                                        </span>
+
                                     </Box>
                                 ))}
                             </Box>

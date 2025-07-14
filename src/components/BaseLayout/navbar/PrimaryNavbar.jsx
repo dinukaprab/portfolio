@@ -1,9 +1,42 @@
 import { Box, Button } from "@mui/material";
 
+const animations = {
+  "@keyframes fadeUp-navbar": {
+    "0%": {
+      opacity: 0,
+      display: "none",
+      transform: "translateY(20px)",
+    },
+    "100%": {
+      opacity: 1,
+      display: "flex",
+      transform: "translateY(0)",
+    },
+  },
+
+  "@keyframes fadeUp-hire-button": {
+    "0%": {
+      opacity: 0,
+      transform: "translateY(-20px)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
+  },
+
+  "@keyframes hire-me-button-glowing": {
+    "0%": { backgroundPosition: "0 0" },
+    "50%": { backgroundPosition: "400% 0" },
+    "100%": { backgroundPosition: "0 0" },
+  },
+};
+
 export default function Navbar() {
   return (
     <Box
       sx={{
+        ...animations,
         position: "relative",
         display: "flex",
         justifyContent: "center",
@@ -81,18 +114,6 @@ export default function Navbar() {
             background: "rgb(2, 6, 14)",
             clipPath: "polygon(100% 0,100% 100%, 0 100%)",
           },
-          "@keyframes fadeUp-navbar": {
-            "0%": {
-              opacity: 0,
-              display: "none",
-              transform: "translateY(20px)",
-            },
-            "100%": {
-              opacity: 1,
-              display: "flex",
-              transform: "translateY(0)",
-            },
-          },
         }}
       >
         <Box
@@ -101,16 +122,6 @@ export default function Navbar() {
             transform: "translateY(-20px)",
             animation: "fadeUp-hire-button 1.5s ease-out forwards",
             animationDelay: "0.5s",
-            "@keyframes fadeUp-hire-button": {
-              "0%": {
-                opacity: 0,
-                transform: "translateY(-20px)",
-              },
-              "100%": {
-                opacity: 1,
-                transform: "translateY(0)",
-              },
-            },
           }}
         >
           <Button
@@ -149,14 +160,18 @@ export default function Navbar() {
                 top: 0,
                 borderRadius: 8,
               },
-              "@keyframes hire-me-button-glowing": {
-                "0%": { backgroundPosition: "0 0" },
-                "50%": { backgroundPosition: "400% 0" },
-                "100%": { backgroundPosition: "0 0" },
-              },
             }}
           >
-            Hire Me
+            <span
+              style={{
+                background: "linear-gradient(90deg, #ff004f, #ff9d00, #00ffd5)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+              }}
+            >
+              Hire Me
+            </span>
           </Button>
         </Box>
       </Box>
