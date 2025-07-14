@@ -23,10 +23,9 @@ export default function ScrolledNavbar() {
             const sections = [
                 "hero",
                 "about",
-                "projects",
                 "skills",
                 "resume",
-                "testimonials",
+                "projects",
                 "contact",
                 "footer",
             ];
