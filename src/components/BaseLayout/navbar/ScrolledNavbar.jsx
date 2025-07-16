@@ -100,7 +100,7 @@ export default function ScrolledNavbar() {
                             <Box
                                 sx={{
                                     fontFamily: "Noto Sans, sans-serif",
-                                    fontWeight: 500,
+                                    fontWeight: 600,
                                     px: 1.5,
                                     py: 0.5,
                                     textTransform: "capitalize",
@@ -163,7 +163,7 @@ export default function ScrolledNavbar() {
                                         }}
                                         sx={{
                                             fontFamily: "Noto Sans, sans-serif",
-                                            fontWeight: 500,
+                                            fontWeight: 600,
                                             px: 1.5,
                                             py: 0.5,
                                             borderRadius: 1,
