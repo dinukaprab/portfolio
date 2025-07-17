@@ -125,32 +125,41 @@ export default function Navbar() {
           }}
         >
           <Button
-            sx={{
+            sx={(theme) => ({
               margin: 2,
               border: "none",
               outline: "none",
               padding: "5px 50px",
               fontWeight: 600,
               borderRadius: 8,
+              position: 'relative',
               zIndex: 1000,
               ":before": {
                 content: '""',
-                background:
-                  "linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)",
                 position: "absolute",
                 top: "-1px",
                 left: "1px",
+                background: `linear-gradient(45deg, 
+                  ${theme.palette.rainbow.red}, 
+                  ${theme.palette.rainbow.orange}, 
+                  ${theme.palette.rainbow.yellow}, 
+                  ${theme.palette.rainbow.lime}, 
+                  ${theme.palette.rainbow.aqua}, 
+                  ${theme.palette.rainbow.blue}, 
+                  ${theme.palette.rainbow.purple}, 
+                  ${theme.palette.rainbow.pink}, 
+                  ${theme.palette.rainbow.red}
+                )`,
                 backgroundSize: "400%",
-                zIndex: -1,
                 filter: "blur(5px)",
                 width: "calc(100% + 1px)",
                 height: "calc(100% + 1px)",
+                zIndex: -1,
                 animation: "hire-me-button-glowing 20s linear infinite",
-                transition: "opacity 0.3s ease-in-out",
                 borderRadius: 8,
+                transition: "opacity 0.3s ease-in-out",
               },
               ":after": {
-                zIndex: -1,
                 content: '""',
                 position: "absolute",
                 width: "100%",
@@ -159,19 +168,21 @@ export default function Navbar() {
                 left: 0,
                 top: 0,
                 borderRadius: 8,
+                zIndex: -1,
               },
-            }}
+            })}
           >
-            <span
-              style={{
-                background: "linear-gradient(90deg, #ff004f, #ff9d00, #00ffd5)",
+            <Box
+              component="span"
+              sx={(theme) => ({
+                background: `linear-gradient(90deg, ${theme.palette.rainbow.pink}, ${theme.palette.rainbow.orange}, ${theme.palette.rainbow.aqua})`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                display: "inline-block",
-              }}
+                display: 'inline-block',
+              })}
             >
               Hire Me
-            </span>
+            </Box>
           </Button>
         </Box>
       </Box>
