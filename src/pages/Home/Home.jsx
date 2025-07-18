@@ -11,6 +11,7 @@ import Footer from "./Footer/Footer";
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,19 +21,13 @@ export default function Home() {
         e.preventDefault();
         const targetElement = document.querySelector(this.getAttribute("href"));
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-          });
+          targetElement.scrollIntoView({ behavior: "smooth" });
         }
       });
     });
 
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      setShowScrollTop(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -40,11 +35,10 @@ export default function Home() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setHovering(false);
   };
+
   return (
     <>
       <Hero componentId="hero" />
@@ -57,26 +51,54 @@ export default function Home() {
 
       {showScrollTop && (
         <Box
+          component="button"
           onClick={scrollToTop}
-          sx={{
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+          sx={(theme) => ({
             position: "fixed",
-            bottom: "25px",
-            margin: "10px",
+            bottom: "30px",
             right: "30px",
-            width: "50px",
             height: "50px",
-            borderRadius: "50%",
-            backgroundColor: "#ff0000",
+            width: hovering ? "140px" : "50px",
+            borderRadius: hovering ? "50px" : "50%",
+            backgroundColor: hovering ? "rgb(181,160,255)" : "rgb(20, 20, 20)",
             display: "flex",
-            justifyContent: "center",
             alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0px 0px 0px 4px rgba(180, 160, 255, 0.253)",
             cursor: "pointer",
-            boxShadow: "0 4px 8px rgba(255, 115, 0, 0.7)",
+            overflow: "hidden",
             zIndex: 1000,
-            transition: "all 0.35s ease-in-out",
-            animation: "bounce 2s infinite,pulse 2s infinite",
-            border: "2px solid rgba(255, 251, 0, 0.4)",
-            ":before": {
+            transition: "all 0.3s ease",
+            border: hovering ? `none` : `2px solid ${theme.palette.rainbow.red}`,
+            animation: hovering ? "none" : "bounce 2s infinite, pulse 2s infinite",
+            "& svg": {
+              width: "20px",
+              transition: "transform 0.3s",
+              color: "#fff",
+              transform: hovering ? "translateY(-200%)" : "none",
+            },
+            "&::before": {
+              content: '"Back to Top"',
+              position: "absolute",
+              fontSize: hovering ? "13px" : "0px",
+              color: "#fff",
+              transition: "all 0.3s ease",
+              top: hovering ? "unset" : "2px",
+              left: hovering ? "unset" : "2px",
+              right: hovering ? "unset" : "2px",
+              bottom: hovering ? "unset" : "2px",
+              borderRadius: hovering ? "none" : "50%",
+              border: hovering ? "none" : `2px solid ${theme.palette.rainbow.red}`,
+              filter: hovering ? "none" : "blur(2px)",
+              zIndex: -1,
+              color: "#000",
+              fontWeight: "bold",
+              letterSpacing: '0.05em',
+              fontFamily: 'Raleway, sans-serif',
+            },
+            "&::after": {
               content: '""',
               position: "absolute",
               top: "-10px",
@@ -86,16 +108,7 @@ export default function Home() {
               borderRadius: "50%",
               border: "2px solid rgba(72, 255, 0, 0.5)",
               opacity: 0,
-              animation: "ring 2s infinite",
-            },
-            "&:hover": {
-              transform: "translateY(-3px)",
-              backgroundColor: "#00ffd5",
-              boxShadow: "0 6px 12px rgba(0, 43, 255, 0.7)",
-              border: "2px solid rgba(122, 0, 255, 0.6)",
-            },
-            "&:hover .go-to-top-icon": {
-              color: "black",
+              animation: hovering ? "none" : "ring 2s infinite",
             },
             "@keyframes bounce": {
               "0%, 20%, 50%, 80%, 100%": { transform: "translateY(0)" },
@@ -112,9 +125,9 @@ export default function Home() {
               "80%": { transform: "scale(1.2)", opacity: 0 },
               "100%": { transform: "scale(1.5)", opacity: 0 },
             },
-          }}
+          })}
         >
-          <KeyboardDoubleArrowUpIcon className="go-to-top-icon" sx={{ color: "white" }} />
+          <KeyboardDoubleArrowUpIcon className="go-to-top-icon" sx={{ color: "white", }} />
         </Box>
       )}
     </>

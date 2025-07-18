@@ -125,7 +125,6 @@ export default function Hero({ componentId }) {
               color: "#fff",
               borderRadius: 8,
               padding: "6px 48px",
-              backgroundClip: "padding-box",
               border: "2px solid transparent",
               backgroundOrigin: "border-box",
               borderColor: theme.palette.rainbow.pink,
