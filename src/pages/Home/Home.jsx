@@ -93,7 +93,6 @@ export default function Home() {
               border: hovering ? "none" : `2px solid ${theme.palette.rainbow.red}`,
               filter: hovering ? "none" : "blur(2px)",
               zIndex: -1,
-              color: "#000",
               fontWeight: "bold",
               letterSpacing: '0.05em',
               fontFamily: 'Raleway, sans-serif',
