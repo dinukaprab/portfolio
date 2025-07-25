@@ -5,6 +5,7 @@ import {
     Fade,
     Box,
     CardMedia,
+    Typography,
     Button,
     IconButton,
     SwipeableDrawer,
@@ -138,16 +139,37 @@ export default function ScrolledNavbar() {
                                 p: 1,
                             }}
                         >
-                            <CardMedia
-                                image="/src/assets/logo.png"
+                            <Box
                                 onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
                                 sx={{
-                                    width: 80,
-                                    ml: { xs: 2, md: 10 },
-                                    aspectRatio: "3/2",
+                                    display: "flex",
+                                    alignItems: "center",
                                     cursor: "pointer",
-                                }}
-                            />
+                                }}>
+                                <CardMedia
+                                    image="/src/assets/logo.png"
+                                    sx={{
+                                        width: 80,
+                                        ml: { xs: 2, md: 10 },
+                                        aspectRatio: "3/2",
+                                    }}
+                                />
+                                <Box
+                                    component="span"
+                                    sx={(theme) => ({
+                                        background: `linear-gradient(90deg, ${theme.palette.rainbow.aqua}, ${theme.palette.rainbow.orange}, ${theme.palette.rainbow.pink})`,
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        display: 'inline-block',
+                                        fontWeight: 400,
+                                        fontSize: { xs: "1.rem", md: "1.5rem" },
+                                        fontFamily: "Pacifico, cursive",
+                                        userSelect: "none",
+                                    })}
+                                >
+                                    inuka Prabath
+                                </Box>
+                            </Box>
                             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, mr: 10 }}>
                                 {tabs.map(({ label, target }) => (
                                     <Box

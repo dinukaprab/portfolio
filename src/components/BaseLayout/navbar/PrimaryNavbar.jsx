@@ -80,6 +80,9 @@ export default function Navbar() {
         }}
       />
       <Box
+        onClick={() => {
+          window.open("https://wa.me/94762200748", "_blank");
+        }}
         sx={{
           display: "flex",
           justifyContent: "center",
